@@ -13,3 +13,12 @@ template "/etc/httpd/conf/httpd.conf" do
   group "root"
   action :create
 end
+
+
+template "/etc/httpd/ports.conf" do
+  source "ports.conf"
+  mode   644
+  owner "root"
+  group "root"
+  action :create
+end

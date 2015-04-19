@@ -7,9 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 template "/etc/td-agent/td-agent.conf" do
-  source "td-agent-development_mohumohu_ap.conf"
+  source "td-agent.conf"
   mode   644
   owner "root"
-  group "root"
+  group "td-agent"
   action :create
 end

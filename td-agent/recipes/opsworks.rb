@@ -1,9 +1,9 @@
 
 template "/etc/td-agent/td-agent.conf" do
   source "td-agent-opsworks.conf"
-  mode   644
-  owner "root"
-  group "td-agent"
+  mode   "0644"
+  owner  "td-agent"
+  group  "td-agent"
   action :create
 end
 

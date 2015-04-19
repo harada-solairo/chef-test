@@ -5,6 +5,6 @@ template "/etc/td-agent/td-agent.conf" do
   owner "root"
   group "td-agent"
   action :create
-  notifies :restart, "service[td-agent]"
 end
 
+include_recipe "td-agent::start"

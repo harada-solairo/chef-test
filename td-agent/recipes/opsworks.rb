@@ -8,10 +8,10 @@ template "/etc/td-agent/td-agent.conf" do
 end
 
 execute "change permission" do
-  command "chgrp -R td-agent /var/log/{httpd,messages}"
-  command "chmod -R g+rx /var/log/{httpd,messages}"
-  command "chgrp -R td-agent /var/log/httpd/error.log"
-  command "chmod -R g+rx /var/log/httpd/error.log"
+  command "sudo chgrp -R td-agent /var/log/{httpd,messages}"
+  command "sudo chmod -R g+rx /var/log/{httpd,messages}"
+  command "sudo chgrp -R td-agent /var/log/httpd/error.log"
+  command "sudo chmod -R g+rx /var/log/httpd/error.log"
 end
 
 

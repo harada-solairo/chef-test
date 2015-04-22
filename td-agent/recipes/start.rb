@@ -1,4 +1,4 @@
 service "td-agent" do
-  supports :status => true, :restart => true, :reload => true
-  action [ :enable, :start ]
+  service_name "httpd"
+  restart_command "service httpd restart"
 end

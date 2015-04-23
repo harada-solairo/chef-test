@@ -1,8 +1,3 @@
-
-service "td-anget" do
-  supports :status => true, :restart => true, :reload => true
-end
-
 template "/etc/td-agent/td-agent.conf" do
   source "td-agent-opsworks.conf"
   mode   "0644"

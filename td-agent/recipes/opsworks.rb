@@ -1,3 +1,8 @@
+service "td-agent" do
+  supports :start => true, :restart => true, :enable => true
+end
+
+
 template "/etc/td-agent/td-agent.conf" do
   source "td-agent-opsworks.conf"
   mode   "0644"
@@ -15,7 +20,4 @@ execute "change permission" do
   notifies :restart, 'service[td-anget]'
 end
 
-service "td-agent" do
-  supports :start => true, :restart => true, :enable => true
-end
 

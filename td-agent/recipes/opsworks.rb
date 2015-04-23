@@ -14,6 +14,9 @@ execute "change permission" do
   notifies :restart, 'service[td-anget]'
 end
 
-include_recipe "td-agent::start"
+service "td-agent" do
+  service_name "td-agent"
+  restart_command "service httpd restart"
+end
 
 

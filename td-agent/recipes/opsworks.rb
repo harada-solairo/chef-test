@@ -1,7 +1,3 @@
-service "td-agent" do
-  supports :start => true, :restart => true, :enable => true
-end
-
 
 template "/etc/td-agent/td-agent.conf" do
   source "td-agent-opsworks.conf"
@@ -17,7 +13,10 @@ execute "change permission" do
   command "sudo chmod -R g+rx /var/log/messages"
   command "sudo chgrp -R td-agent /var/log/httpd"
   command "sudo chmod -R g+rx /var/log/httpd"
-  notifies :restart, 'service[td-anget]'
+end
+
+service "td-agent" do
+  supports :start => true, :restart => true, :enable => true
 end
 
 

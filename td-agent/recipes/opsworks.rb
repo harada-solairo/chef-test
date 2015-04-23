@@ -15,4 +15,7 @@ execute "change permission" do
   notifies :restart, 'service[td-anget]'
 end
 
+service "td-agent" do
+  supports :start => true, :restart => true, :enable => true
+end
 

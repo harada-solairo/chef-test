@@ -22,3 +22,13 @@ template "/etc/httpd/ports.conf" do
   group "root"
   action :create
 end
+
+
+bash 'git config' do
+  #user 'root'
+  code <<-EOL
+    git config --global url."https://".insteadOf git://
+    git config --global http.postBuffer 524288000
+  EOL
+end
+

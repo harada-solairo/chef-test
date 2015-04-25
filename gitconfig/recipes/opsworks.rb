@@ -8,10 +8,9 @@
 #
 
 bash 'git config' do
-  #user 'root'
   code <<-EOL
-    git config --global url."https://".insteadOf git://
-    git config --global http.postBuffer 524288000
+    sudo su - deploy -c 'git config --global url."https://".insteadOf git://'
+    sudo su - deploy -c 'git config --global http.postBuffer 524288000'
   EOL
 end
 

@@ -8,8 +8,8 @@
 #
 
 
-['fluent-plugin-rewrite-tag-filter','fluent-plugin-parser','fluent-plugin-config-expander','fluent-plugin-record-reformer'].each do | pluginname |
-  gem_package pluginname do
+['rewrite-tag-filter','parser','config-expander','record-reformer', 'grep'].each do | pluginname |
+  gem_package "fluent-plugin-#{pluginname}"do
     gem_binary "/usr/lib64/fluent/ruby/bin/fluent-gem"
     action :install
   end

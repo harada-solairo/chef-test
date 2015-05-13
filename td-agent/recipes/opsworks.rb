@@ -8,13 +8,20 @@ template "/etc/td-agent/td-agent.conf" do
   notifies :restart, "service[td-agent]" 
 end
 
-execute "change permission" do
-  command <<-EOH
-    sudo chgrp -R td-agent /var/log/messages
-    sudo chmod -R g+rx /var/log/messages
-    sudo chown -R td-agent /var/log/httpd
-    sudo chmod -R g+rx /var/log/httpd
-  EOH
+execute "change permission messange" do
+  command "sudo chgrp -R td-agent /var/log/messages"
+end
+
+execute "change permission httpd" do
+  command "sudo chmod -R g+rx /var/log/messages"
+end
+
+execute "change owner messange" do
+  command "sudo chown -R td-agent /var/log/httpd"
+end
+
+execute "change owner httpd" do
+  command "sudo chmod -R g+rx /var/log/httpd"
 end
 
 service "td-agent" do

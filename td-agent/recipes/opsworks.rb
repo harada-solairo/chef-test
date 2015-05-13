@@ -19,12 +19,7 @@ execute "change permission httpd" do
 end
 
 execute "change owner messange" do
-  command "chown -R td-agent /var/log/httpd"
-  action :run
-end
-
-execute "change owner httpd" do
-  command "chmod -R g+rx /var/log/httpd"
+  command "/usr/bin/perl -i -pe 's/root/td-agent/g' /etc/logrotate.d/httpd"
   action :run
 end
 

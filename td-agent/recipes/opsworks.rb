@@ -9,10 +9,12 @@ template "/etc/td-agent/td-agent.conf" do
 end
 
 execute "change permission" do
-  command "sudo chgrp -R td-agent /var/log/messages"
-  command "sudo chmod -R g+rx /var/log/messages"
-  command "sudo chown -R td-agent /var/log/httpd"
-  command "sudo chmod -R g+rx /var/log/httpd"
+  command <<-EOH
+    sudo chgrp -R td-agent /var/log/messages
+    sudo chmod -R g+rx /var/log/messages
+    sudo chown -R td-agent /var/log/httpd
+    sudo chmod -R g+rx /var/log/httpd
+  EOH
 end
 
 service "td-agent" do

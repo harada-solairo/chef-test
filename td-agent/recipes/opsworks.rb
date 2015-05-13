@@ -11,7 +11,7 @@ end
 execute "change permission" do
   command "sudo chgrp -R td-agent /var/log/messages"
   command "sudo chmod -R g+rx /var/log/messages"
-  command "sudo chgrp -R td-agent /var/log/httpd"
+  command "sudo chown -R td-agent /var/log/httpd"
   command "sudo chmod -R g+rx /var/log/httpd"
 end
 

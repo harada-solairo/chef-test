@@ -9,22 +9,22 @@ template "/etc/td-agent/td-agent.conf" do
 end
 
 execute "change permission messange" do
-  command "sudo chgrp -R td-agent /var/log/messages"
+  command "chgrp -R td-agent /var/log/messages"
   action :run
 end
 
 execute "change permission httpd" do
-  command "sudo chmod -R g+rx /var/log/messages"
+  command "chmod -R g+rx /var/log/messages"
   action :run
 end
 
 execute "change owner messange" do
-  command "sudo chown -R td-agent /var/log/httpd"
+  command "chown -R td-agent /var/log/httpd"
   action :run
 end
 
 execute "change owner httpd" do
-  command "sudo chmod -R g+rx /var/log/httpd"
+  command "chmod -R g+rx /var/log/httpd"
   action :run
 end
 
